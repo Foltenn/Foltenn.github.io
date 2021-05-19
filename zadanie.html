@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Kalkulator</title>
+    <style>
+        #naglowek {
+            font:20px Arial;
+            border: 5px solid #6F2232;
+            text-align: center;
+            background-color: #239cac;
+        }
+        #koniec {
+            font:15px Arial;
+            text-align: center;
+            padding: 5px 10px 0px ;
+            background-color: #4d4e4e;
+            height:  20px;
+            width: 300px;
+            margin: 0 auto;
+        }
+        body {
+            font: 20px Arial;
+            background-color: #1A1A1D;
+        }
+        #Kalkulator {
+            background-color: #6F2232;
+            width: 600px;
+            padding: 40px 30px 40px 30px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        input {
+            padding: 10px 20px;
+            width: 140px;
+            margin-bottom: 7px;
+            margin-left: 10px;
+            text-align: center;
+        }
+        button {
+            background-color: #379683;
+            color: aliceblue;
+            padding: 10px 20px;
+            width: 300px;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="naglowek">
+        <h2>KALKULATOR FIGUR PŁASKICH</h1>
+    </div>
+
+    <script type="text/javascript">
+        function Kalkulator(oblicz)
+        {
+            let a = document.getElementById('a').value;
+            let b = document.getElementById('b').value;
+            let h = document.getElementById('h').value;
+            
+            switch(oblicz)
+            {
+                case 'pole trojkata = (a*h)/2':
+                    var result = parseFloat(a) * parseFloat(h)/2;
+                break;
+                case 'pole trapezu = 1/2*(a+b)*h':
+                    var result = (parseFloat(a) + parseFloat(b)) * parseFloat(h)/2;
+                break;
+                case 'pole rombu = a*h':
+                    var result = parseFloat(a) * parseFloat(h);
+                break;
+                case 'pole prostokata = a*b':
+                    var result = parseFloat(a) * parseFloat(b);
+                break;
+                case 'pole kwadratu = a*a':
+                    var result = Math.pow(parseFloat(a),2);
+                break;
+                 
+            }
+            document.getElementById('result').value = '= ' + result;
+        }
+    </script>
+
+        <form id="Kalkulator">
+            Podaj odpowiednie liczby do obliczenia danego wzoru<br><br>
+            A = <input type="text" id="a" placeholder="podaj wartość a"><br>
+            B = <input type="text" id="b" placeholder="podaj wartość b"><br>
+            H = <input type="text" id="h" placeholder="podaj wartość h"><br><br>
+            Wynik:<input type="text" id="result" placeholder="=" disabled><br><br>
+            <button type="button" onclick="Kalkulator(this.innerHTML)">pole trojkata = (a*h)/2</button>
+            <button type="button" onclick="Kalkulator(this.innerHTML)">pole trapezu = 1/2*(a+b)*h</button>
+            <button type="button" onclick="Kalkulator(this.innerHTML)">pole rombu = a*h</button>
+            <button type="button" onclick="Kalkulator(this.innerHTML)">pole prostokata = a*b</button>
+            <button type="button" onclick="Kalkulator(this.innerHTML)">pole kwadratu = a*a</button>
+        </form>
+        <hr color=#239cac>
+    <div id="koniec">
+        <footer>
+            Dawid Olejniczak 2cgm - Strona na pai
+        </footer>
+    </div>
+</body>
+</html>
